@@ -69,18 +69,21 @@ namespace TheBulwark
         }
         private void OnEnemyDamaged(float damage, bool fatal, HealthHaver enemy)
         {
-            this.damagecharge += damage;
-            bool flag = this.damagecharge > 250f;
-            bool flag2 = flag;
-            if (flag2)
+            if (enemy != null)
             {
-                if (charges != 4)
+                this.damagecharge += damage;
+                bool flag = this.damagecharge > 250f;
+                bool flag2 = flag;
+                if (flag2)
                 {
-                    AkSoundEngine.PostEvent("Play_BOSS_doormimic_appear_01", base.gameObject);
-                    this.damagecharge = 0f;
-                    this.charges += 1;
-                }
+                    if (charges != 4)
+                    {
+                        AkSoundEngine.PostEvent("Play_BOSS_doormimic_appear_01", base.gameObject);
+                        this.damagecharge = 0f;
+                        this.charges += 1;
+                    }
 
+                }
             }
         }
         private void GrantCharge()

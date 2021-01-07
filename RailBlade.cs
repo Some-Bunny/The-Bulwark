@@ -30,7 +30,7 @@ namespace TheBulwark
 			//behav.preventNormalReloadAudio = true;
 			//behav.overrideNormalReloadAudio = "Play_BOSS_doormimic_appear_01";
 			GunExt.SetShortDescription(gun, "Heirloom");
-			GunExt.SetLongDescription(gun, "A blade pillaged from an infamous Swordtress, retro-fitted with ranged capabilities.\n\nIn an emergency, the sharp blade can cleave through bullets");
+			GunExt.SetLongDescription(gun, "A blade pillaged from an infamous Swordtress, retro-fitted with ranged capabilities.\n\nIn an emergency, the sharp blade can cleave through bullets.");
 			GunExt.SetupSprite(gun, null, "railblade_idle_001", 8);
 			GunExt.SetAnimationFPS(gun, gun.shootAnimation, 24);
 			GunExt.SetAnimationFPS(gun, gun.reloadAnimation, 24);
@@ -42,7 +42,7 @@ namespace TheBulwark
 			gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.Charged;
 			gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
 			gun.reloadTime = 0.8f;
-			gun.DefaultModule.cooldownTime = 0.2f;
+			gun.DefaultModule.cooldownTime = 0.18f;
 			gun.DefaultModule.numberOfShotsInClip = 8;
 			gun.SetBaseMaxAmmo(90);
 			gun.InfiniteAmmo = true;
@@ -123,7 +123,7 @@ namespace TheBulwark
 				base.OnReloadPressed(player, gun, bSOMETHING);
 				AkSoundEngine.PostEvent("Play_WPN_blasphemy_shot_01", base.gameObject);
 				Vector2 unitCenter = player.specRigidbody.GetUnitCenter(ColliderType.HitBox);
-				SilencerInstance.DestroyBulletsInRange(unitCenter, 4.25f, true, false, null, false, null, false, null);
+				SilencerInstance.DestroyBulletsInRange(unitCenter, 4.5f, true, false, null, false, null, false, null);
 			}
 			/*
 			float num = (this.gun.CurrentOwner.sprite.WorldCenter).magnitude * 1.25f;
@@ -174,3 +174,6 @@ namespace TheBulwark
 		}
 	}
 }
+
+
+
